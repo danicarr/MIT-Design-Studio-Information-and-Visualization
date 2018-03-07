@@ -33,6 +33,7 @@ function draw(error,data){
     // 1.1 how do you want to show the information? By time (axis X)
     // check the data, transform it into date (is it the correct date???)
     // data is in seconds
+    //extent gets the max and the min
     var extentTimeWeather = d3.extent(todayWeather,function(d){
         return new Date (d.time * 1000)
     });
@@ -104,8 +105,7 @@ function draw(error,data){
         .attr("class", "weather") // this is the same class that we have selected before
         .attr("d",lineWeather);
 
-    plot1
-        .select('.todayWeather')
+    plot1.select('.todayWeather')
         .append("line")
         .attr("class","meanWeather")
         .attr("x1",scaleX1(extentdata24h[0]))
@@ -117,9 +117,9 @@ function draw(error,data){
         .append("g")
         .attr("class","dots");
     //
-    // var plotNumbers = plot1.select('.todayWeather')
-    //     .append("g")
-    //     .attr("class","numbers");
+     var plotNumbers = plot1.select('.todayWeather')
+         .append("g")
+         .attr("class","numbers");
 
     plotDots
         .selectAll(".weatherDots")

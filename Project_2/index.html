@@ -2,18 +2,61 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Weather App - Project 2</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="style.css" rel="stylesheet"/>
+    
 </head>
 <body>
 <div class="container">
     <div class="row">
         <h1 class="col-md-12">First Dashboard</h1>
-        <div id="mobile1">
-            <div class="row">
-                <img src='Artboard%201@0.5x.png'  />
-            </div>
+        
+            <div id="mobile1">
+                <div class="row  no-gutters">
+                    <div id="textTopLeft" class="col-6 ">
+                        <div class="row no-gutters">
+                             <p id="tempLarge" class="col-12"></p>
+                            <p id="currTime" class="col-12" >
+                            </p>
+                            <p id="location" class="col-12" align="left">
+                                CAMBRIDGE, MA
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="highLowGraph" class="col-6">   </div>
+
+
+                </div>
+
+                <div id="TempVRealFeelGraph" class="col-12">
+                </div>
+                <div class="row justify-content-center">
+                    <div id="HumVsCCGraph" class="col-6">
+                        pie chart of humidity v cloud coverage here
+                    </div>
+                    <div id="WindSpChanceRain" class="col-6">
+                        <div id="milesPerHour" class="row justify-content-center">
+                            <div id="mphNum" class="col-6">
+                            </div>
+                            <div id="windIcon" class="col-6">
+                                <img src='wind_icon.svg' id="windIcon"/>
+                            </div>
+                            
+                        </div>
+                        <div id="chanceOfRain" class="row">
+                            <div id="percentage" class="col-6">
+                            </div>
+                            <div id="rainIcon" class="col-6">
+                                <img src='rain_icon.svg' id="rainIcon"/>
+                            </div>
+                        </div>
+                    </div>
+            
+                </div>
+            
         </div>
             <div class="row">
             <p>
