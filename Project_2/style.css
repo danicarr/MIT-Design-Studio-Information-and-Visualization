@@ -3,6 +3,11 @@ body {
     font-family: 'Century Gothic';
 }
 
+@font-face {
+    font-family: Prisma;
+    src: url(Prisma.ttf);
+}
+
 #mobile1,#mobile2 {
     width: 425px;
     height: 736px;
@@ -14,33 +19,39 @@ body {
 }
 #mobile1{
     background-color: #efcb25;
-    
+}
+
+#mobile2{
+    background-color: #1f233b;
 }
 
 #tempLarge{
+    font-family: Prisma;
+
     text-align: left;
-    font-size: 90px;
-    font-weight: 900;
+    font-size: 140px;
+    font-weight: 500;
     margin-left: 15px;
     margin-bottom: 0px;
-    color: #c30f2a
-   
-    
+    margin-top: -25px;
+    color: #c30f2a   
+}
+
+#HumVsCCGraph{
+    margin-left: 5px;
 }
 
 
 #location, #currTime {
     font-size:20px;
-    font-weight: 100;
+    font-weight: 550;
     text-align: left;
+    margin-top: -10px;
     margin-bottom: 5px;
-    margin-left:  15px
+    margin-left: 20px
 }
 
 
-
-#TempVRealFeelGraph{
-}
 
 
 #windIcon{
@@ -51,21 +62,33 @@ body {
 
 #mphNum, #percentage{
     text-align: right;
-    font-size:35px;
-    font-weight: 600;
+    font-family: Prisma;
+    font-size:28px;
+    font-weight: 100;
     margin-left: 0px;
     margin-right: 0px;
     color: #ffffff
 }
 
+#percentage{
+    
+}
+
+#rainIcon{
+    margin-left: 0px;
+    margin-right: -5px;
+}
 
 
 #milesPerHour, #chanceOfRain{
-    margin-left: 5px;
+    margin-left: 0px;
     margin-right: 15px;
     margin-top: 40px;
-    margin-bottom: -10px;
-    
+    margin-bottom: -10px;  
+}
+
+#WindSpChanceRain{
+    margin-left: -5px;
 }
 
 .weather {
@@ -144,9 +167,101 @@ body {
 
 
 .HLDots {
-    stroke: #g9bd09;
-    stroke-width: 3px;
+/*    stroke: #ffffff;*/
+    stroke-width: 2px;
+    
+}
+
+.apptTempDot{
+    fill: #1f233b;
+    stroke: #ffffff;
+    
+}
+
+.currTempDot{
+    fill: #c30f2a;
+   
+}
+
+.HumidityArcInner{
     fill: #1f233b;
 }
 
+.HumidityText{
+/*    font-family: Prisma;*/
+    text-align: left;
+    font-size: 18px;
+    font-weight: 500;
+    margin-left: 10px;
+    margin-bottom: 0px;
+    margin-top: -10px;
+    color: #ffffff;
+}
 
+.HumidityArcOutline{
+    stroke: #1f233b;
+    stroke-dasharray: 4px;
+    stroke-width: 1px;
+    fill: none;
+    color: #ffffff;
+}
+
+.CloudCoverageArcInner{
+    fill:#ffffff;
+}
+
+
+/*ABSTRACT*/
+
+.entireRow{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+
+}
+
+.sun-column,.moon-column{
+    flex:30%;
+    display: inline-block;
+
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.mid-column
+{
+    flex:30%;
+    display: inline-block;
+    align-content: center;
+    height: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+.SunCircle{
+    fill: #efcb25;
+}
+
+.MoonCircle{
+    fill:#efcb25;
+}
+
+.MoonCover{
+    fill: #1f233b;
+}
+
+.weekLine{
+    stroke-width: 5px;
+    stroke: #efcb25;
+    stroke-linecap: round;
+}
+
+.HighsOfDay{
+    fill: #c30f2a;
+}
+
+.LowsOfDay{
+    fill: #ffffff;
+}

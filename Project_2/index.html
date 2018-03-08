@@ -25,18 +25,13 @@
                             </p>
                         </div>
                     </div>
-
                     <div id="highLowGraph" class="col-6">   </div>
-
-
                 </div>
-
                 <div id="TempVRealFeelGraph" class="col-12">
                 </div>
                 <div class="row justify-content-center">
                     <div id="HumVsCCGraph" class="col-6">
-                        pie chart of humidity v cloud coverage here
-                    </div>
+                    </div>    
                     <div id="WindSpChanceRain" class="col-6">
                         <div id="milesPerHour" class="row justify-content-center">
                             <div id="mphNum" class="col-6">
@@ -68,8 +63,13 @@
     <div class="row">
         <h1 class="col-md-12">Second Dashboard</h1>
         <div id="mobile2">
-            <div class="row">
-                <img src='Artboard%202@0.5x.png'  />
+            <div class="entireRow">
+                <div class="sun-column" id="SunColumn">
+                </div>
+                <div class="mid-column" id="MidColumn">
+                </div>
+                <div class="moon-column" id="MoonColumn" >
+                </div>
             </div>
         </div>
             <div class="row">
@@ -77,6 +77,15 @@
                     For the abstract drawing I wanted to visualize the moon and the sun. Since the darkSky data gives up the exact moon phase, the shape of the moon would correspond to that figure while the times next to the moond represent sundown and the time next to the sun represents sun rise. Further, the number of 'rays' coming out of the sun correspond to the 10's digit of the temperature while the number of stars on the moon's side correspond to the 1's digit of the temperature. 
                 </p>
             </div>
+    </div>
+    <div class="row">
+        <h1 class="col-md-12">Mock-Ups</h1>
+        <div class="col-6">
+            <img src='Artboard%201@0.5x.png'/>
+        </div>
+        <div class="col-6">
+            <img src='Artboard%202@0.5x.png'/>
+        </div>
     </div>
     <div class="row">
         <h3 class="col-md-12">On-paper Sketches</h3>
@@ -88,6 +97,8 @@
 </div>
 
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script1.js"></script>
+<script src="script2.js"></script>
 </body>
 </html>
