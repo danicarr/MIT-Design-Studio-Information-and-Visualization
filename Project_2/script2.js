@@ -53,7 +53,7 @@ d3.json("data/boston_weather.json", draw2);
 //  crossDomain: true,
 //  complete: function (data) {
 //    if (data.readyState == '4' && data.status == '200') {
-//      draw(data.responseJSON)
+//      draw2(data.responseJSON)
 //    } else {
 //      console.log("DATA FETCH FAILED")
 //    }
