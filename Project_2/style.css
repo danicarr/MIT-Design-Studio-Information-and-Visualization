@@ -190,12 +190,12 @@ body {
 .HumidityText{
 /*    font-family: Prisma;*/
     text-align: left;
-    font-size: 18px;
+    font-size: 10px;
     font-weight: 500;
     margin-left: 10px;
     margin-bottom: 0px;
     margin-top: -10px;
-    color: #ffffff;
+    color: #c30f2a;
 }
 
 .HumidityArcOutline{
@@ -209,7 +209,18 @@ body {
 .CloudCoverageArcInner{
     fill:#ffffff;
 }
+.CloudText, .CoverText{
+    font-size: 10px;
+}
 
+.ccPercent, .humPercent{
+    font-size:20px;
+    font-weight: 550;
+}
+
+.humPercent{
+    fill:#c30f2a;
+}
 
 /*ABSTRACT*/
 
@@ -265,3 +276,9 @@ body {
 .LowsOfDay{
     fill: #ffffff;
 }
+
+.dow-text, .low-text, .high-text{
+    fill:#ffffff;
+}
+
+

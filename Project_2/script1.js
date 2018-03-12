@@ -41,23 +41,23 @@ var plot4 = d3.select('#HumVsCCGraph') // if we select a html id #name, if we se
 //https://darksky.net/forecast/42.3638,-71.1034/us12/en..data/boston_weather.json
 
 
-d3.json("data/boston_weather.json", draw);
+//d3.json("data/boston_weather.json", draw);
 
 
 //GET DATA REAL TIME
-//$.ajax({
-//  url: 'https://api.darksky.net/forecast/c6b293fcd2092b65cfb7313424b2f7ff/42.361145,-71.057083',
-//  dataType: 'JSONP',
-//  type: 'GET',
-//  crossDomain: true,
-//  complete: function (data) {
-//    if (data.readyState == '4' && data.status == '200') {
-//      draw(data.responseJSON)
-//    } else {
-//      console.log("DATA FETCH FAILED")
-//    }
-//  }
-//})
+$.ajax({
+  url: 'https://api.darksky.net/forecast/c6b293fcd2092b65cfb7313424b2f7ff/42.361145,-71.057083',
+  dataType: 'JSONP',
+  type: 'GET',
+  crossDomain: true,
+  complete: function (data) {
+    if (data.readyState == '4' && data.status == '200') {
+      draw(data.responseJSON)
+    } else {
+      console.log("DATA FETCH FAILED")
+    }
+  }
+})
 
 
 
@@ -100,14 +100,6 @@ function draw(data){
         return d.time >=todayNow && d.time<=nxt6Hr
     });
     
-//    var dataNow = todayWeather.filter(function(d){
-//        return d.time===todayNow
-//    });
-    
-//    console.log(dataNow);
-    
-//    var temperatureNow = dataNow.temperature;
-//    console.log("temp now: " + temperatureNow);
     
     
     //going to give us the start and end of the period
@@ -299,10 +291,6 @@ function draw(data){
     
 //    console.log(dailyDataTodayOnly[0].temperatureLow)
     
-    //DOTS FOR THE HIGH LOW BAR LINE NOT SHOWING UP
-//    plot2.append('g')
-//        .attr('transform', 'translate(' + margin2.l + ',' + margin2.t + ')')
-//        .attr("class","currTempDot");
     
     function getIndexForTemp(temp){
         var roundTemp = Math.round(temp);
@@ -373,16 +361,17 @@ function draw(data){
     .startAngle(0) //convert from degs to radians
     .endAngle(scalePercentages(nowData.humidity)* (Math.PI/180));
 
-    plotPie.append("g").attr('transform', 'translate(' + margin4.l + ',' + margin4.t + ')').attr('class', 'HumidityArcInner');
+    plotPie.append("g").attr('transform', 'translate(' + (margin4.l+1) + ',' + margin4.t + ')').attr('class', 'HumidityArcInner');
     
     plot4.select(".HumidityArcInner")
         .append("path")
         .attr("d", arcHumidity)
         
     plot4.select(".pieChart").append("g").attr('class', 'HumidityText').append("text").text("Humidity");
+    plot4.select(".pieChart").append("text").attr('class', 'humPercent').text(nowData.humidity*100 + "%");
     
-    plot4.select(".HumidityText").attr('transform', 'translate(' + (margin4.l+10) + ',' + margin4.t + ')').attr('fill',"#c30f2a");
-    
+    plot4.select(".HumidityText").attr('transform', 'translate(' + 30 + ',' + (margin4.t + 17) + ')').attr('fill',"#c30f2a");
+    plot4.select('.humPercent').attr('transform', 'translate(' + 30 + ',' + (margin4.t+5) + ')');
     
 //    
 //    d3.select(".HumidityArcInner").html(" " + Math.floor(currentTemperature) + "°");
@@ -392,21 +381,27 @@ function draw(data){
     .innerRadius(0)
     .outerRadius(width4/2.1)
     .startAngle(0) //convert from degs to radians
-    .endAngle(-1*scalePercentages(nowData.cloudCover)* (Math.PI/180));
-
-    plotPie.append("g").attr('transform', 'translate(' + margin4.l + ',' + margin4.t + ')').attr('class', 'CloudCoverageArcInner');
+    .endAngle(-1*(scalePercentages(nowData.cloudCover)* (Math.PI/180.0)));
+    
+    console.log("arc");
+    console.log(arcCC.outerRadius);
+    
+    plotPie.append("g").attr('transform', 'translate(' + margin4.l-1 + ',' + margin4.t + ')').attr('class', 'CloudCoverageArcInner');
     
     plot4.select(".CloudCoverageArcInner")
         .append("path")
         .attr("d", arcCC)
     
-    plot4.select(".pieChart").append("g").attr('class', 'CloudText').append("text").text("Cloud");
+    plot4.select(".pieChart").append("g").attr('class', 'CloudText').append("text").text("Cloud Cover");
+    plot4.select(".pieChart").append("text").attr('class', 'ccPercent').text(nowData.cloudCover*100 + "%");
     
-    plot4.select(".CloudText").attr('transform', 'translate(' + -65 + ',' + (margin4.t-10) + ')');
+    plot4.select(".CloudText").attr('transform', 'translate(' + -70 + ',' + (margin4.t+17) + ')');
+    plot4.select('.ccPercent').attr('transform', 'translate(' + -60 + ',' + (margin4.t+5) + ')');
     
-    plot4.select(".pieChart").append("g").attr('class', 'CoverText').append("text").text("Cover");
     
-    plot4.select(".CoverText").attr('transform', 'translate(' + -65 + ',' + margin4.t+10 + ')')
+//    plot4.select(".pieChart").append("g").attr('class', 'CoverText').append("text").text("Cover");
+    
+//    plot4.select(".CoverText").attr('transform', 'translate(' + -65 + ',' + margin4.t+0 + ')')
     
     
  

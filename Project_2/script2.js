@@ -205,8 +205,10 @@ function draw2(data){
     });
     console.log(extentWeeklyWeatherApparent);
     
+    var scaleLow = Math.floor(extentWeeklyWeatherApparent[0]);
+    var scaleHigh = Math.ceil(extentWeeklyWeatherActual[1]);
     
-    var scaleRadHighs = d3.scaleLinear().domain([extentWeeklyWeatherApparent[0], extentWeeklyWeatherActual[1]]).range([10,35]);
+    var scaleRadHighs = d3.scaleLinear().domain([extentWeeklyWeatherApparent[0], extentWeeklyWeatherActual[1]]).range([scaleLow , scaleHigh]);
 
     
     console.log(totalHeight-40);
@@ -219,13 +221,26 @@ function draw2(data){
         ypos+=interval;
     }
     
-    var scaleRadLows = d3.scaleLinear().domain([extentWeeklyWeatherApparent[0], extentWeeklyWeatherApparent[1]]).range([3,15]);
+    var scaleRadLows = d3.scaleLinear().domain([extentWeeklyWeatherApparent[0], extentWeeklyWeatherApparent[1]]).range([1,15]);
+    
+    console.log(dataOfTheDay);
+    console.log(scaleHigh);
+    
+    var formatDayOfWeek = d3.timeFormat("%a");
     
     var interval = 107.33;
     ypos =20;
     for(var i=0; i<5;i++){
         plot7.select(".Week").append("circle").attr("class", "LowsOfDay").attr("cx",xpos).attr("cy",ypos+interval).attr("r",scaleRadHighs(dataOfTheDay[i].apparentTemperatureLow));
         ypos+=interval;
+        
+        plot7.select(".Week").append("text").attr('class', 'dow-text').text(formatDayOfWeek(
+        new Date (dataOfTheDay[i].time*1000))).attr('x', xpos-scaleHigh-15).attr('y', ypos-scaleHigh+5);
+        
+        plot7.select(".Week").append("text").attr('class', 'high-text').text(Math.floor(dataOfTheDay[i].apparentTemperatureLow)  + '°').attr('x', xpos+scaleHigh-10).attr('y', ypos+scaleHigh+20);
+        
+        plot7.select(".Week").append("text").attr('class', 'low-text').text(Math.floor(dataOfTheDay[i].temperatureHigh) + '°' ).attr('x', xpos+scaleHigh-10).attr('y', ypos+scaleHigh+0);
+        
     }
     
     
