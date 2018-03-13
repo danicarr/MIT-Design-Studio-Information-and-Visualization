@@ -102,16 +102,22 @@ body {
 .weatherP {
     fill: none;
     stroke: #ffffff;
-    stroke-width: 3px;
+    stroke-width: 2px;
     stroke-linecap: round;
     stroke-linejoin: round;
-    stroke-dasharray: 7;
+    stroke-dasharray: 3;
 }
 
 
 .weatherDots {
-    stroke: #g9bd09;
+    stroke: #c30f2a;
     stroke-width: 3px;
+    fill: #1f233b;
+}
+
+.weatherDotsP{
+    stroke: #1f233b;
+    stroke-width: 2px;
     fill: #1f233b;
 }
 

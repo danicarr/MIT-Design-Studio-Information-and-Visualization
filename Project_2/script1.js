@@ -202,6 +202,20 @@ function draw(data){
         .attr("cy",function(d) { return scaleY1(d.temperature); })
         .attr("r",3);
     
+    var plotDots2 = plot1.select('.todayWeather')
+        .append("g")
+        .attr("class","dotsP");
+    
+    plotDots2
+        .selectAll(".weatherDotsP")
+        .data(data24h) //select the data
+        .enter()
+        .append("circle")
+        .attr("class", "weatherDotsP") // this is the same class that we have selected before
+        .attr("cx",function(d) { return scaleX1(new Date (d.time*1000)); })
+        .attr("cy",function(d) { return scaleY1(d.apparentTemperature); })
+        .attr("r",3);
+    
     
     //TEMP TIME LOCATION TOP LEFT
     var formatTime = d3.timeFormat("%I:%M %p");
@@ -343,11 +357,11 @@ function draw(data){
     
     var arcHumidityOutline = d3.arc()
     .innerRadius(0)
-    .outerRadius(width4/2)
+    .outerRadius(width4/1.89)
     .startAngle(0) //convert from degs to radians
     .endAngle(180);
 
-    plotPie.append("g").attr('transform', 'translate(' + margin4.l + ',' + margin4.t + ')').attr('class', 'HumidityArcOutline');
+    plotPie.append("g").attr('transform', 'translate(' + (margin4.l-2) + ',' + margin4.t + ')').attr('class', 'HumidityArcOutline');
     
     plot4.select(".HumidityArcOutline")
         .append("path")
