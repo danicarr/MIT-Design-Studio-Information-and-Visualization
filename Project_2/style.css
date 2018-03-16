@@ -117,7 +117,7 @@ body {
 
 .weatherDotsP{
     stroke: #1f233b;
-    stroke-width: 2px;
+    stroke-width: 1px;
     fill: #1f233b;
 }
 

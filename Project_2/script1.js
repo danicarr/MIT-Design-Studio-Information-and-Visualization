@@ -333,6 +333,7 @@ function draw(data){
         .attr("cy", scaleY1((nowData.apparentTemperature)))
         .attr("r",10);
     
+    
 
 //pie chart of humidity and cloud coverage
 
